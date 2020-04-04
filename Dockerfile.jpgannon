@@ -4,4 +4,35 @@ LABEL org.label-schema.license="GPL-2.0" \
       org.label-schema.vcs-url="https://github.com/rsettlag" \
       maintainer="Robert Settlage <rsettlag@vt.edu>"
 
-RUN Rscript -e "install.packages(Ncpus=6,c('shinysky','rgdal','leaflet','sf','raster','htmltools','leaflet.extras','shinythemes','rmarkdown','EcoHydRology','DT','zoo','shinycssloaders','patchwork','readr','grid','flexdashboard','lubridate'),repos='https://cloud.r-project.org',lib='/usr/local/lib/R/site-library',dep=TRUE)"
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    lbzip2 \
+    libfftw3-dev \
+    libgdal-dev \
+    libgeos-dev \
+    libgsl0-dev \
+    libgl1-mesa-dev \
+    libglu1-mesa-dev \
+    libhdf4-alt-dev \
+    libhdf5-dev \
+    libjq-dev \
+    liblwgeom-dev \
+    libpq-dev \
+    libproj-dev \
+    libprotobuf-dev \
+    libnetcdf-dev \
+    libsqlite3-dev \
+    libssl-dev \
+    libudunits2-dev \
+    netcdf-bin \
+    postgis \
+    protobuf-compiler \
+    sqlite3 \
+    tk-dev \
+    unixodbc-dev
+  
+
+RUN Rscript -e "install.packages(Ncpus=6,c('shinysky','rgdal','leaflet', \
+      'sf','raster','htmltools','leaflet.extras','shinythemes','rmarkdown', \
+      'EcoHydRology','DT','zoo','shinycssloaders','patchwork','readr','grid', \
+      'flexdashboard','lubridate'),repos='https://cloud.r-project.org',lib='/usr/local/lib/R/site-library',dep=TRUE)"
