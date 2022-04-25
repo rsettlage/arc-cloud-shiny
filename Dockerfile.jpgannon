@@ -36,4 +36,4 @@ RUN Rscript -e "install.packages(Ncpus=6,c('shinysky','rgdal','leaflet', \
       'sf','raster','htmltools','leaflet.extras','shinythemes','rmarkdown', \
       'EcoHydRology','DT','zoo','shinycssloaders','patchwork','readr','grid', \
       'flexdashboard','lubridate','googledrive','ggthemes', 'shinydashboard', \
-      'plotly', 'rsconnect'),repos='https://cloud.r-project.org',lib='/usr/local/lib/R/site-library',dep=TRUE)"
+      'plotly', 'rsconnect','shinyWidgets', 'viridis'),repos='https://cloud.r-project.org',lib='/usr/local/lib/R/site-library',dep=TRUE)"
